@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>5e1e1cbd-96e4-45ab-b1fb-31986d4552c6</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Client\WeatherDashboard.Client.csproj" />
+    <ProjectReference Include="..\Shared\WeatherDashboard.Shared.csproj" />
+  </ItemGroup>
+
+
+</Project>
