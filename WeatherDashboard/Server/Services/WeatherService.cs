@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -22,7 +21,7 @@ namespace WeatherDashboard.Server.Services
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Forecast>> GetWeeklyForecast(string city)
+        public async Task<WeatherForecast> GetWeeklyForecast(string city)
         {
             try
             {
@@ -37,13 +36,14 @@ namespace WeatherDashboard.Server.Services
                 };
                 using var response = await _client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
-                var forecasts = await response.Content.ReadFromJsonAsync<Forecast[]>();
+                var content = await response.Content.ReadAsStringAsync();
+                var forecasts = await response.Content.ReadFromJsonAsync<WeatherForecast>();
                 return forecasts;
             }
             catch(Exception e)
             {
                 _logger.LogError(e, "Error getting weekly forecast");
-                return Array.Empty<Forecast>();
+                return new WeatherForecast();
             }
         }
     }

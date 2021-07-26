@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WeatherDashboard.Server.Services.Models
+﻿namespace WeatherDashboard.Server.Services.Models
 {
     public class Forecast
     {
+        public ForecastDay[] forecastday { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeatherDashboard.Client.Models.ViewModels;
@@ -20,10 +19,10 @@ namespace WeatherDashboard.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<WeatherForecast>> Get()
+        public async Task<IEnumerable<WeatherGridRow>> Get()
         {
             var forecast = await _service.GetWeeklyForecast("seattle");
-            return Array.Empty<WeatherForecast>();
+            return forecast.ToWeatherGridRows();
         }
     }
 }
