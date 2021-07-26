@@ -7,7 +7,7 @@
 
         public override string ToString()
         {
-            return $"{High}/{Low}";
+            return $"{High} / {Low}";
         }
     }
 }
