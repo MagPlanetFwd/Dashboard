@@ -22,7 +22,7 @@ namespace WeatherDashboard.Server.Controllers
         [HttpGet]
         public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            var forecast = await _service.GetWeeklyForecast("Seattle");
+            var forecast = await _service.GetWeeklyForecast("seattle");
             return Array.Empty<WeatherForecast>();
         }
     }
