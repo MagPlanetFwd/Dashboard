@@ -2,7 +2,8 @@
 {
     public class Day
     {
-        public float Avgtemp_c { get; set; }
+        public float Mintemp_c { get; set; }
+        public float Maxtemp_c { get; set; }
 
     }
 }

@@ -17,9 +17,21 @@ namespace WeatherDashboard.Server.Services.Models
             return new WeatherGridRow()
             {
                 City = Location.Name,
-                Today = Forecast.Forecastday[0].Day.Avgtemp_c,
-                Tomorrow = Forecast.Forecastday[1].Day.Avgtemp_c,
-                ThirdDay = Forecast.Forecastday[2].Day.Avgtemp_c
+                Today = new DailyForecast()
+                {
+                    Low = Forecast.Forecastday[0].Day.Mintemp_c,
+                    High = Forecast.Forecastday[0].Day.Maxtemp_c
+                },
+                Tomorrow = new DailyForecast()
+                {
+                    Low = Forecast.Forecastday[1].Day.Mintemp_c,
+                    High = Forecast.Forecastday[1].Day.Maxtemp_c
+                },
+                ThirdDay = new DailyForecast()
+                {
+                    Low = Forecast.Forecastday[2].Day.Mintemp_c,
+                    High = Forecast.Forecastday[2].Day.Maxtemp_c
+                },
             };
         }
     }

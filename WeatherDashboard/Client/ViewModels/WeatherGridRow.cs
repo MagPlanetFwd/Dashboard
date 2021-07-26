@@ -3,8 +3,8 @@
     public class WeatherGridRow
     {
         public string City { get; set; }
-        public float Today { get; set; }
-        public float Tomorrow { get; set; }
-        public float ThirdDay { get; set; }
+        public DailyForecast Today { get; set; }
+        public DailyForecast Tomorrow { get; set; }
+        public DailyForecast ThirdDay { get; set; }
     }
 }
