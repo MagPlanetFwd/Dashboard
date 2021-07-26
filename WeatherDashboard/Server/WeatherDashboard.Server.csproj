@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\WeatherDashboard.Client.csproj" />
-    <ProjectReference Include="..\Shared\WeatherDashboard.Shared.csproj" />
   </ItemGroup>
 
 

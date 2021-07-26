@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace WeatherDashboard.Shared
+namespace WeatherDashboard.Client.Models.ViewModels
 {
     public class WeatherForecast
     {

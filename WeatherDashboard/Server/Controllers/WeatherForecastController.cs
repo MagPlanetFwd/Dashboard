@@ -1,17 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using WeatherDashboard.Client.Models.ViewModels;
+using WeatherDashboard.Client.Services;
 using WeatherDashboard.Server.Services;
-using WeatherDashboard.Shared;
 
 namespace WeatherDashboard.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : ControllerBase, IWeatherForecastController
     {
         private readonly IWeatherService _service;
 

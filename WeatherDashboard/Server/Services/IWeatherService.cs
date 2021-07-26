@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using WeatherDashboard.Shared;
+using WeatherDashboard.Server.Services.Models;
 
 namespace WeatherDashboard.Server.Services
 {
     public interface IWeatherService
     {
-        Task<string> GetWeeklyForecast(string city);
+        Task<IEnumerable<Forecast>> GetWeeklyForecast(string city);
     }
 }

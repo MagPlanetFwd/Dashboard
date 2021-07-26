@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using WeatherDashboard.Shared;
+using WeatherDashboard.Server.Services.Models;
 
 namespace WeatherDashboard.Server.Services
 {
@@ -20,7 +19,7 @@ namespace WeatherDashboard.Server.Services
             _configuration = configuration;
         }
 
-        public async Task<string> GetWeeklyForecast(string city)
+        public async Task<IEnumerable<Forecast>> GetWeeklyForecast(string city)
         {
             var request = new HttpRequestMessage
             {
@@ -33,7 +32,7 @@ namespace WeatherDashboard.Server.Services
             };
             using var response = await _client.SendAsync(request);
             response.EnsureSuccessStatusCode();
-            return await response.Content.ReadAsStringAsync();
+            return await response.Content.ReadFromJsonAsync<Forecast[]>();
         }
     }
 }

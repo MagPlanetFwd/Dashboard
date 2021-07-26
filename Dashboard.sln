@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherDashboard.Server", "WeatherDashboard\Server\WeatherDashboard.Server.csproj", "{65971BD3-B1D4-469C-A600-A76F682E0121}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherDashboard.Server", "WeatherDashboard\Server\WeatherDashboard.Server.csproj", "{65971BD3-B1D4-469C-A600-A76F682E0121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherDashboard.Client", "WeatherDashboard\Client\WeatherDashboard.Client.csproj", "{02CDE109-C540-4417-A3E9-5B5AD38169BA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherDashboard.Shared", "WeatherDashboard\Shared\WeatherDashboard.Shared.csproj", "{BD5BF855-8DC8-42CB-A89B-667EC4DCB157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherDashboard.Client", "WeatherDashboard\Client\WeatherDashboard.Client.csproj", "{02CDE109-C540-4417-A3E9-5B5AD38169BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{02CDE109-C540-4417-A3E9-5B5AD38169BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02CDE109-C540-4417-A3E9-5B5AD38169BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02CDE109-C540-4417-A3E9-5B5AD38169BA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD5BF855-8DC8-42CB-A89B-667EC4DCB157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD5BF855-8DC8-42CB-A89B-667EC4DCB157}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD5BF855-8DC8-42CB-A89B-667EC4DCB157}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD5BF855-8DC8-42CB-A89B-667EC4DCB157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
