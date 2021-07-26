@@ -22,7 +22,10 @@ namespace WeatherDashboard.Server.Controllers
         public async Task<IEnumerable<WeatherGridRow>> Get()
         {
             var forecast = await _service.GetWeeklyForecast("seattle");
-            return forecast.ToWeatherGridRows();
+            return new WeatherGridRow[]
+            {
+                forecast.ToWeatherGridRow()
+            };
         }
     }
 }

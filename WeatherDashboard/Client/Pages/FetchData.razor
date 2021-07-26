@@ -15,16 +15,20 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
+                <th>Location</th>
+                <th>Today</th>
+                <th>Tomorrow</th>
+                <th>@DateTime.Today.AddDays(2).ToString("MM/dd")</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@forecast.Date</td>
-                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.City</td>
+                    <td>@forecast.Today</td>
+                    <td>@forecast.Tomorrow</td>
+                    <td>@forecast.ThirdDay</td>
                 </tr>
             }
         </tbody>

@@ -1,33 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using WeatherDashboard.Client.Models.ViewModels;
+﻿using WeatherDashboard.Client.Models.ViewModels;
 
 namespace WeatherDashboard.Server.Services.Models
 {
     public class WeatherForecast
     {
+        public Location location { get; set; }
         public Forecast forecast { get; set; }
 
-        public IEnumerable<WeatherGridRow> ToWeatherGridRows()
+        public WeatherGridRow ToWeatherGridRow()
         {
             if(forecast == null)
             {
-                return Array.Empty<WeatherGridRow>();
+                return new WeatherGridRow();
             }
 
-            var days = forecast.forecastday;
-            var n = days.Length;
-            var rows = new WeatherGridRow[n];
-            for(var i = 0; i < n; i++)
+            return new WeatherGridRow()
             {
-                rows[i] = new WeatherGridRow()
-                {
-                    Date = days[i].date.ToString("MM/dd"),
-                    TemperatureC = days[i].day.avgtemp_c
-                };
-            }
-
-            return rows;
+                City = location.name,
+                Today = forecast.forecastday[0].day.avgtemp_c,
+                Tomorrow = forecast.forecastday[1].day.avgtemp_c,
+                ThirdDay = forecast.forecastday[2].day.avgtemp_c
+            };
         }
     }
 }

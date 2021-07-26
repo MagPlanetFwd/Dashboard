@@ -1,10 +1,10 @@
-﻿using System;
-
-namespace WeatherDashboard.Client.Models.ViewModels
+﻿namespace WeatherDashboard.Client.Models.ViewModels
 {
     public class WeatherGridRow
     {
-        public string Date { get; set; }
-        public float TemperatureC { get; set; }
+        public string City { get; set; }
+        public float Today { get; set; }
+        public float Tomorrow { get; set; }
+        public float ThirdDay { get; set; }
     }
 }

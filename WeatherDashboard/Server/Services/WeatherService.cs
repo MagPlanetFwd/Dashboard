@@ -36,7 +36,6 @@ namespace WeatherDashboard.Server.Services
                 };
                 using var response = await _client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
-                var content = await response.Content.ReadAsStringAsync();
                 var forecasts = await response.Content.ReadFromJsonAsync<WeatherForecast>();
                 return forecasts;
             }
