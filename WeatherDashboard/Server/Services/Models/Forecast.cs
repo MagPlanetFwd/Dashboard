@@ -2,6 +2,6 @@
 {
     public class Forecast
     {
-        public ForecastDay[] forecastday { get; set; }
+        public ForecastDay[] Forecastday { get; set; }
     }
 }

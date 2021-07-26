@@ -2,7 +2,7 @@
 {
     public class Day
     {
-        public float avgtemp_c { get; set; }
+        public float Avgtemp_c { get; set; }
 
     }
 }

@@ -4,22 +4,22 @@ namespace WeatherDashboard.Server.Services.Models
 {
     public class WeatherForecast
     {
-        public Location location { get; set; }
-        public Forecast forecast { get; set; }
+        public Location Location { get; set; }
+        public Forecast Forecast { get; set; }
 
         public WeatherGridRow ToWeatherGridRow()
         {
-            if(forecast == null)
+            if(Forecast == null)
             {
                 return new WeatherGridRow();
             }
 
             return new WeatherGridRow()
             {
-                City = location.name,
-                Today = forecast.forecastday[0].day.avgtemp_c,
-                Tomorrow = forecast.forecastday[1].day.avgtemp_c,
-                ThirdDay = forecast.forecastday[2].day.avgtemp_c
+                City = Location.Name,
+                Today = Forecast.Forecastday[0].Day.Avgtemp_c,
+                Tomorrow = Forecast.Forecastday[1].Day.Avgtemp_c,
+                ThirdDay = Forecast.Forecastday[2].Day.Avgtemp_c
             };
         }
     }
