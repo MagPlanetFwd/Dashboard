@@ -21,7 +21,7 @@ namespace WeatherDashboard.Server.Services
             _logger = logger;
         }
 
-        public async Task<WeatherForecast> GetWeeklyForecast(string city)
+        public async Task<WeatherForecast> Get3DayForecast(string city)
         {
             try
             {

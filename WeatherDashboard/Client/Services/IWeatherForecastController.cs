@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using WeatherDashboard.Client.Models.ViewModels;
+using WeatherDashboard.Client.ViewModels;
 
 namespace WeatherDashboard.Client.Services
 {

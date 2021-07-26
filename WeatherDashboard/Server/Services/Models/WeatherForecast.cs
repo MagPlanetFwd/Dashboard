@@ -1,4 +1,4 @@
-﻿using WeatherDashboard.Client.Models.ViewModels;
+﻿using WeatherDashboard.Client.ViewModels;
 
 namespace WeatherDashboard.Server.Services.Models
 {

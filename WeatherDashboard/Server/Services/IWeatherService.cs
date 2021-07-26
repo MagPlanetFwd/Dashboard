@@ -5,6 +5,6 @@ namespace WeatherDashboard.Server.Services
 {
     public interface IWeatherService
     {
-        Task<WeatherForecast> GetWeeklyForecast(string city);
+        Task<WeatherForecast> Get3DayForecast(string city);
     }
 }

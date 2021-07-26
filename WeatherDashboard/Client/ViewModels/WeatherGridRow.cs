@@ -1,4 +1,4 @@
-﻿namespace WeatherDashboard.Client.Models.ViewModels
+﻿namespace WeatherDashboard.Client.ViewModels
 {
     public class WeatherGridRow
     {
