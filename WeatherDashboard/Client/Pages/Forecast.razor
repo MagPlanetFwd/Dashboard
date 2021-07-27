@@ -1,7 +1,7 @@
 ﻿@page "/forecast"
 @inherits ForecastBase
 
-<h1>Three-day Weather Forecasts (C)</h1>
+<h1>Three-day Weather Forecasts (&deg;C)</h1>
 
 @if (Forecasts == null)
 {
@@ -23,9 +23,15 @@ else
             {
                 <tr>
                     <td>@forecast.City</td>
-                    <td>@forecast.Today</td>
-                    <td>@forecast.Tomorrow</td>
-                    <td>@forecast.ThirdDay</td>
+                    <td>
+                        <img src="@forecast.Today.Icon" alt="@forecast.Today"/>
+                    </td>
+                    <td>
+                        <img src="@forecast.Tomorrow.Icon" alt="@forecast.Tomorrow"/>
+                    </td>
+                    <td>
+                        <img src="@forecast.ThirdDay.Icon" alt="@forecast.ThirdDay"/>
+                    </td>
                 </tr>
             }
         </tbody>
