@@ -1,4 +1,6 @@
-﻿namespace WeatherDashboard.Client.ViewModels
+﻿using System;
+
+namespace WeatherDashboard.Client.ViewModels
 {
     public class DailyForecast
     {
@@ -10,5 +12,6 @@
         {
             return $"{High} / {Low}";
         }
+
     }
 }
