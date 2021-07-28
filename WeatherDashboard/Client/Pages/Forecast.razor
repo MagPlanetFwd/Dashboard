@@ -1,4 +1,5 @@
 ﻿@page "/forecast"
+@using ViewModels
 @inherits ForecastBase
 
 <h1>Three-day Weather Forecasts (&deg;C)</h1>
@@ -9,31 +10,45 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Location</th>
-                <th>Today</th>
-                <th>Tomorrow</th>
-                <th>@DateTime.Today.AddDays(2).ToString("MM/dd")</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in Forecasts)
-            {
-                <tr>
-                    <td>@forecast.City</td>
-                    <td class="@forecast.Today.Color">
-                        <ForecastIcon DailyForecast="@forecast.Today"></ForecastIcon>
-                    </td>
-                    <td class="@forecast.Tomorrow.Color">
-                        <ForecastIcon DailyForecast="@forecast.Tomorrow"></ForecastIcon>
-                    </td>
-                    <td class="@forecast.ThirdDay.Color">
-                        <ForecastIcon DailyForecast="@forecast.ThirdDay"></ForecastIcon>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <TelerikGrid Data="@Forecasts"
+                 Sortable="true">
+        <GridColumns>
+            <GridColumn Field="@nameof(WeatherGridRow.City)">
+            </GridColumn>
+            <GridColumn Field="@nameof(WeatherGridRow.Today)"
+                        Sortable="false">
+                <Template>
+                    @{
+                        var forecast = context as WeatherGridRow;
+                        <div class="@forecast.Today.Color">
+                            <ForecastIcon DailyForecast="forecast.Today"></ForecastIcon>
+                        </div>
+                    }
+                </Template>
+            </GridColumn>
+            <GridColumn Field="@nameof(WeatherGridRow.Tomorrow)"
+                        Sortable="false">
+                <Template>
+                    @{
+                        var forecast = context as WeatherGridRow;
+                        <div class="@forecast.Tomorrow.Color">
+                            <ForecastIcon DailyForecast="forecast.Tomorrow"></ForecastIcon>
+                        </div>
+                    }
+                </Template>
+            </GridColumn>
+            <GridColumn Field="@nameof(WeatherGridRow.ThirdDay)"
+                        Title="@DateTime.Today.AddDays(2).ToString("MM/dd")"
+                        Sortable="false">
+                <Template>
+                    @{
+                        var forecast = context as WeatherGridRow;
+                        <div class="@forecast.ThirdDay.Color">
+                            <ForecastIcon DailyForecast="forecast.ThirdDay"></ForecastIcon>
+                        </div>
+                    }
+                </Template>
+            </GridColumn>
+        </GridColumns>
+    </TelerikGrid>
 }
