@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>5e1e1cbd-96e4-45ab-b1fb-31986d4552c6</UserSecretsId>
+	<DxExtendStartupHost>False</DxExtendStartupHost>
+	<UserSecretsId>5e1e1cbd-96e4-45ab-b1fb-31986d4552c6</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿@page "/forecast"
+@using ViewModels
 @inherits ForecastBase
 
 <h1>Three-day Weather Forecasts (&deg;C)</h1>
@@ -9,31 +10,70 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Location</th>
-                <th>Today</th>
-                <th>Tomorrow</th>
-                <th>@DateTime.Today.AddDays(2).ToString("MM/dd")</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in Forecasts)
-            {
+<DxDataGrid Data="@Forecasts"
+            ShowPager="false">
+    <DxDataGridColumn Field="@nameof(WeatherGridRow.City)">
+    </DxDataGridColumn>
+    <DxDataGridColumn Caption="Today"
+                      AllowSort="false"
+                      >
+        <DisplayTemplate>
+            <table>
                 <tr>
-                    <td>@forecast.City</td>
                     <td>
-                        <img src="@forecast.Today.Icon" alt="@forecast.Today"/>
-                    </td>
-                    <td>
-                        <img src="@forecast.Tomorrow.Icon" alt="@forecast.Tomorrow"/>
-                    </td>
-                    <td>
-                        <img src="@forecast.ThirdDay.Icon" alt="@forecast.ThirdDay"/>
+                        <img src="@((context as WeatherGridRow).Today.Icon)"/>
                     </td>
                 </tr>
-            }
-        </tbody>
-    </table>
+                <tr>
+                    <td>
+                        <b>Lo: </b>@((context as WeatherGridRow).Today.Low)
+                    </td>
+                    <td>
+                        <b>Hi: </b>@((context as WeatherGridRow).Today.High)
+                    </td>
+                </tr>
+            </table>
+        </DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Caption="Tomorrow"
+                      AllowSort="false">
+        <DisplayTemplate>
+            <table>
+                <tr>
+                    <td>
+                        <img src="@((context as WeatherGridRow).Tomorrow.Icon)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Lo: </b>@((context as WeatherGridRow).Tomorrow.Low)
+                    </td>
+                    <td>
+                        <b>Hi: </b>@((context as WeatherGridRow).Tomorrow.High)
+                    </td>
+                </tr>
+            </table>
+        </DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Caption="@DateTime.Today.AddDays(2).ToString("MM/dd")"
+                      AllowSort="false">
+        <DisplayTemplate>
+            <table>
+                <tr>
+                    <td>
+                        <img src="@((context as WeatherGridRow).ThirdDay.Icon)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Lo: </b>@((context as WeatherGridRow).ThirdDay.Low)
+                    </td>
+                    <td>
+                        <b>Hi: </b>@((context as WeatherGridRow).ThirdDay.High)
+                    </td>
+                </tr>
+            </table>
+        </DisplayTemplate>
+    </DxDataGridColumn>
+</DxDataGrid>
 }

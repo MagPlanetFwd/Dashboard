@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -8,14 +11,15 @@ namespace WeatherDashboard.Client.Pages
 {
     public class ForecastBase: ComponentBase
     {
-        protected WeatherGridRow[] Forecasts { get; private set; }
+        protected ObservableCollection<WeatherGridRow> Forecasts { get; private set; } = new ObservableCollection<WeatherGridRow>();
 
         [Inject]
         public HttpClient Client { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            Forecasts = await Client.GetFromJsonAsync<WeatherGridRow[]>("WeatherForecast");
+            var forecasts = await Client.GetFromJsonAsync<IEnumerable<WeatherGridRow>>("WeatherForecast");
+            forecasts.ToList().ForEach(wgr => Forecasts.Add(wgr));
         }
     }
 }
