@@ -23,13 +23,13 @@ else
             {
                 <tr>
                     <td>@forecast.City</td>
-                    <td>
+                    <td class="@forecast.Today.Color">
                         <ForecastIcon DailyForecast="@forecast.Today"></ForecastIcon>
                     </td>
-                    <td>
+                    <td class="@forecast.Tomorrow.Color">
                         <ForecastIcon DailyForecast="@forecast.Tomorrow"></ForecastIcon>
                     </td>
-                    <td>
+                    <td class="@forecast.ThirdDay.Color">
                         <ForecastIcon DailyForecast="@forecast.ThirdDay"></ForecastIcon>
                     </td>
                 </tr>
