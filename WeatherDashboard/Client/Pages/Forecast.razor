@@ -24,13 +24,13 @@ else
                 <tr>
                     <td>@forecast.City</td>
                     <td>
-                        <img src="@forecast.Today.Icon" alt="@forecast.Today"/>
+                        <ForecastIcon DailyForecast="@forecast.Today"></ForecastIcon>
                     </td>
                     <td>
-                        <img src="@forecast.Tomorrow.Icon" alt="@forecast.Tomorrow"/>
+                        <ForecastIcon DailyForecast="@forecast.Tomorrow"></ForecastIcon>
                     </td>
                     <td>
-                        <img src="@forecast.ThirdDay.Icon" alt="@forecast.ThirdDay"/>
+                        <ForecastIcon DailyForecast="@forecast.ThirdDay"></ForecastIcon>
                     </td>
                 </tr>
             }
