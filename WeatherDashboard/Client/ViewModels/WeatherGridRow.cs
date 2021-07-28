@@ -1,4 +1,6 @@
-﻿namespace WeatherDashboard.Client.ViewModels
+﻿using WeatherDashboard.Shared;
+
+namespace WeatherDashboard.Client.ViewModels
 {
     public class WeatherGridRow
     {
