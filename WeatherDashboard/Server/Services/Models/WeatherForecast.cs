@@ -1,4 +1,5 @@
 ﻿using WeatherDashboard.Client.ViewModels;
+using WeatherDashboard.Shared;
 
 namespace WeatherDashboard.Server.Services.Models
 {

@@ -1,4 +1,4 @@
-﻿namespace WeatherDashboard.Client.ViewModels
+﻿namespace WeatherDashboard.Shared
 {
     public class DailyForecast
     {
