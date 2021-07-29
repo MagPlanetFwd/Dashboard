@@ -20,11 +20,11 @@
 
         private ForecastColor GetForecastColor()
         {
-            if(High < 10)
+            if(High < 5)
             {
                 return ForecastColor.cold;
             }
-            else if(High < 20)
+            else if(High < 15)
             {
                 return ForecastColor.cool;
             }
@@ -32,7 +32,7 @@
             {
                 return ForecastColor.average;
             }
-            else if (High < 30)
+            else if (High < 35)
             {
                 return ForecastColor.warm;
             }
