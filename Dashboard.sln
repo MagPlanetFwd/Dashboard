@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherDashboard.Server", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherDashboard.Client", "WeatherDashboard\Client\WeatherDashboard.Client.csproj", "{02CDE109-C540-4417-A3E9-5B5AD38169BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherDashboard.Components", "WeatherDashboard.Components\WeatherDashboard.Components.csproj", "{0537A0E2-E3B9-4A0E-BB66-1F7145B1AFC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherDashboard.Components", "WeatherDashboard.Components\WeatherDashboard.Components.csproj", "{0537A0E2-E3B9-4A0E-BB66-1F7145B1AFC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherDashboard.Shared", "WeatherDashboard.Shared\WeatherDashboard.Shared.csproj", "{A6E23808-8AFF-4E9D-9D0E-6781E72DBF5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherDashboard.Shared", "WeatherDashboard.Shared\WeatherDashboard.Shared.csproj", "{A6E23808-8AFF-4E9D-9D0E-6781E72DBF5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
