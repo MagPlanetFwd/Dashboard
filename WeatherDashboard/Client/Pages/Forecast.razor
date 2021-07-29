@@ -18,22 +18,34 @@ else
                       AllowSort="false"
                       >
         <DisplayTemplate>
-            <ForecastIcon DailyForecast="@((context as WeatherGridRow).Today)">
-            </ForecastIcon>
+            @{ 
+                var forecast = context as WeatherGridRow;
+                <div class="@forecast.Today.Color">
+                    <ForecastIcon DailyForecast="forecast.Today"></ForecastIcon>
+                </div>
+            }
         </DisplayTemplate>
     </DxDataGridColumn>
     <DxDataGridColumn Caption="Tomorrow"
                       AllowSort="false">
         <DisplayTemplate>
-            <ForecastIcon DailyForecast="@((context as WeatherGridRow).Tomorrow)">
-            </ForecastIcon>
+            @{
+                var forecast = context as WeatherGridRow;
+                <div class="@forecast.Tomorrow.Color">
+                    <ForecastIcon DailyForecast="forecast.Tomorrow"></ForecastIcon>
+                </div>
+            }
         </DisplayTemplate>
     </DxDataGridColumn>
     <DxDataGridColumn Caption="@DateTime.Today.AddDays(2).ToString("MM/dd")"
                       AllowSort="false">
         <DisplayTemplate>
-            <ForecastIcon DailyForecast="@((context as WeatherGridRow).ThirdDay)">
-            </ForecastIcon>
+            @{
+                var forecast = context as WeatherGridRow;
+                <div class="@forecast.ThirdDay.Color">
+                    <ForecastIcon DailyForecast="forecast.ThirdDay"></ForecastIcon>
+                </div>
+            }
         </DisplayTemplate>
     </DxDataGridColumn>
 </DxDataGrid>
