@@ -20,11 +20,10 @@ namespace WeatherDashboard.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<WeatherGridRow>> Get()
+        public async Task<IEnumerable<WeatherGridRow>> Get([FromQuery(Name = "cities")] string[] cities)
         {
             var tasks = new List<Task>();
             var rows = new ConcurrentBag<WeatherGridRow>();
-            var cities = new string[] { "seattle", "portland", "san francisco" };
 
             void action(object city)
             {

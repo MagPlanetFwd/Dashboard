@@ -6,6 +6,6 @@ namespace WeatherDashboard.Client.Services
 {
     public interface IWeatherForecastController
     {
-        Task<IEnumerable<WeatherGridRow>> Get();
+        Task<IEnumerable<WeatherGridRow>> Get(string[] cities);
     }
 }
