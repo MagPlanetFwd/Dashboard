@@ -15,7 +15,10 @@ namespace WeatherDashboard.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Forecasts = await Client.GetFromJsonAsync<WeatherGridRow[]>("WeatherForecast");
+            Forecasts = await Client.GetFromJsonAsync<WeatherGridRow[]>("WeatherForecast?" +
+                "cities=seattle&" +
+                "cities=portland&" +
+                "cities=san francisco");
         }
     }
 }

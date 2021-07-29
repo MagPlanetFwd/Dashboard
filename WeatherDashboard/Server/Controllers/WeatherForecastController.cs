@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using WeatherDashboard.Client.ViewModels;
 using WeatherDashboard.Client.Services;
 using WeatherDashboard.Server.Services;
+using System.Collections.Concurrent;
 
 namespace WeatherDashboard.Server.Controllers
 {
@@ -19,11 +20,10 @@ namespace WeatherDashboard.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<WeatherGridRow>> Get()
+        public async Task<IEnumerable<WeatherGridRow>> Get([FromQuery(Name = "cities")] string[] cities)
         {
             var tasks = new List<Task>();
-            var rows = new List<WeatherGridRow>();
-            var cities = new string[] { "seattle", "portland", "san francisco" };
+            var rows = new ConcurrentBag<WeatherGridRow>();
 
             void action(object city)
             {
@@ -31,9 +31,9 @@ namespace WeatherDashboard.Server.Controllers
                 rows.Add(forecast.ToWeatherGridRow());
             }
 
-            for (var i = 0; i < 3; i++)
+            foreach(var city in cities)
             {
-                tasks.Add(Task.Factory.StartNew(action, cities[i]));
+                tasks.Add(Task.Factory.StartNew(action, city));
             }
 
             await Task.WhenAll(tasks.ToArray());
