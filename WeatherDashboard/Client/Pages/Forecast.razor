@@ -10,6 +10,8 @@
 }
 else
 {
+    <input type="text" @bind="SearchBox" />
+    <button @onclick="OnSearchClicked">Add</button>
     <SfGrid DataSource="@Forecasts" AllowSorting="true">
         <GridColumns>
             <GridColumn Field="@nameof(WeatherGridRow.City)">

@@ -9,7 +9,7 @@ using System.Collections.Concurrent;
 namespace WeatherDashboard.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class WeatherForecastController : ControllerBase, IWeatherForecastController
     {
         private readonly IWeatherService _service;
@@ -20,7 +20,7 @@ namespace WeatherDashboard.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<WeatherGridRow>> Get([FromQuery(Name = "cities")] string[] cities)
+        public async Task<IEnumerable<WeatherGridRow>> GetMultiple([FromQuery(Name = "cities")] string[] cities)
         {
             var tasks = new List<Task>();
             var rows = new ConcurrentBag<WeatherGridRow>();
@@ -39,6 +39,13 @@ namespace WeatherDashboard.Server.Controllers
             await Task.WhenAll(tasks.ToArray());
 
             return rows;
+        }
+
+        [HttpGet]
+        public async Task<WeatherGridRow> Get([FromQuery(Name = "city")] string city)
+        {
+            var forecast = await _service.Get3DayForecast(city);
+            return forecast.ToWeatherGridRow();
         }
     }
 }
