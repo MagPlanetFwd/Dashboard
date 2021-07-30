@@ -21,7 +21,7 @@ namespace WeatherDashboard.Server.Services
             _logger = logger;
         }
 
-        public async Task<SearchResult> GetLocations(string search)
+        public async Task<SearchResult> GetSearchResult(string search)
         {
             try
             {

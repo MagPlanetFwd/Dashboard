@@ -3,8 +3,8 @@ using WeatherDashboard.Server.Services.Models;
 
 namespace WeatherDashboard.Server.Services
 {
-    interface ILocationSearchService
+    public interface ILocationSearchService
     {
-        Task<SearchResult> GetLocations(string search);
+        Task<SearchResult> GetSearchResult(string search);
     }
 }

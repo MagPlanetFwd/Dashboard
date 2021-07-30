@@ -24,9 +24,14 @@ namespace WeatherDashboard.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var weatherapi = new Uri("https://weatherapi-com.p.rapidapi.com/");
             services.AddHttpClient<IWeatherService, WeatherService>(client =>
             {
-                client.BaseAddress = new Uri("https://weatherapi-com.p.rapidapi.com/");
+                client.BaseAddress = weatherapi;
+            });
+            services.AddHttpClient<ILocationSearchService, LocationSearchService>(client =>
+            {
+                client.BaseAddress = weatherapi;
             });
 
             services.AddControllersWithViews();

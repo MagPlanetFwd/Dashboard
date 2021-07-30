@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeatherDashboard.Client.ViewModels;
-using WeatherDashboard.Client.Services;
 using WeatherDashboard.Server.Services;
 using System.Collections.Concurrent;
 
@@ -10,7 +9,7 @@ namespace WeatherDashboard.Server.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    public class WeatherForecastController : ControllerBase, IWeatherForecastController
+    public class WeatherForecastController : ControllerBase
     {
         private readonly IWeatherService _service;
 
