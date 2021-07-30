@@ -11,15 +11,15 @@
 else
 {
     <input type="text" @bind="SearchBox" />
-    <button @onclick="OnSearchClicked">Add</button>
+    <SfButton @onclick="OnSearchClicked">Add</SfButton>
     <SfGrid DataSource="@Forecasts" AllowSorting="true">
         <GridColumns>
             <GridColumn Field="@nameof(WeatherGridRow.City)">
             </GridColumn>
-            <GridColumn Field="@nameof(WeatherGridRow.Today)" 
+            <GridColumn Field="@nameof(WeatherGridRow.Today)"
                         AllowSorting="false">
                 <Template>
-                    @{ 
+                    @{
                         var forecast = context as WeatherGridRow;
                         <ForecastIcon DailyForecast="forecast.Today"></ForecastIcon>
                     }

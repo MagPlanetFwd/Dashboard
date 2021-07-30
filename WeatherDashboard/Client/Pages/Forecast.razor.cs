@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using Syncfusion.Blazor.Data;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -8,7 +9,7 @@ using WeatherDashboard.Client.ViewModels;
 
 namespace WeatherDashboard.Client.Pages
 {
-    public class ForecastBase: ComponentBase
+    public class ForecastBase : ComponentBase
     {
         protected ObservableCollection<WeatherGridRow> Forecasts { get; private set; }
         protected string SearchBox { get; set; }
@@ -32,7 +33,6 @@ namespace WeatherDashboard.Client.Pages
             }
 
             var forecast = await Client.GetFromJsonAsync<WeatherGridRow>($"WeatherForecast/Get?city={SearchBox}");
-            SearchBox = string.Empty;
             Forecasts.Add(forecast);
         }
     }
