@@ -21,9 +21,7 @@ else
                 <Template>
                     @{ 
                         var forecast = context as WeatherGridRow;
-                        <div class="@forecast.Today.Color">
-                            <ForecastIcon DailyForecast="forecast.Today"></ForecastIcon>
-                        </div>
+                        <ForecastIcon DailyForecast="forecast.Today"></ForecastIcon>
                     }
                 </Template>
             </GridColumn>
@@ -32,9 +30,7 @@ else
                 <Template>
                     @{
                         var forecast = context as WeatherGridRow;
-                        <div class="@forecast.Tomorrow.Color">
-                            <ForecastIcon DailyForecast="forecast.Tomorrow"></ForecastIcon>
-                        </div>
+                        <ForecastIcon DailyForecast="forecast.Tomorrow"></ForecastIcon>
                     }
                 </Template>
             </GridColumn>
@@ -44,9 +40,7 @@ else
                 <Template>
                     @{
                         var forecast = context as WeatherGridRow;
-                        <div class="@forecast.ThirdDay.Color">
-                            <ForecastIcon DailyForecast="forecast.ThirdDay"></ForecastIcon>
-                        </div>
+                        <ForecastIcon DailyForecast="forecast.ThirdDay"></ForecastIcon>
                     }
                 </Template>
             </GridColumn>
