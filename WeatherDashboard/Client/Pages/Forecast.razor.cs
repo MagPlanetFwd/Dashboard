@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Syncfusion.Blazor.Data;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -39,8 +39,27 @@ namespace WeatherDashboard.Client.Pages
                 return;
             }
 
-            var forecast = await Client.GetFromJsonAsync<WeatherGridRow>($"WeatherForecast/Get?city={SearchBox}");
+            var city = SearchBox.Split(',')[0];
+            var forecast = await Client.GetFromJsonAsync<WeatherGridRow>($"WeatherForecast/Get?city={city}");
             Forecasts.Add(forecast);
+        }
+
+        protected string GetSearchUrl()
+        {
+            return $"https://localhost:5001/LocationSearch?search={SearchBox}";
+        }
+
+        protected void OnAutoCompleteKeyPressed(KeyboardEventArgs args)
+        {
+            SearchBox += args.Key;
+        }
+
+        protected void OnAutoCompleteKeyUp(KeyboardEventArgs args)
+        {
+            if(args.Code == "Backspace" && SearchBox.Length > 0)
+            {
+                SearchBox = SearchBox.Remove(SearchBox.Length - 1);
+            }
         }
     }
 }

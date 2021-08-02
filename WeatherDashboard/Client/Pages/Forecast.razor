@@ -11,17 +11,18 @@
 }
 else
 {
-    <SfAutoComplete TValue="string" 
+    <SfAutoComplete TValue="string"
                     TItem="LocationResult"
-                    Autofill="true"
-                    Query="@GetQuery()">
-        <SfDataManager Url="https://localhost:5001/LocationSearch?search=atlanta"
+                    Placeholder="e.g. Atlanta"
+                    Query="@GetQuery()"
+                    @onkeypress="@(e => OnAutoCompleteKeyPressed(e))"
+                    @onkeydown="@(e => OnAutoCompleteKeyUp(e))">
+        <SfDataManager Url="@GetSearchUrl()"
                        Adaptor="Adaptors.UrlAdaptor"
                        CrossDomain="true">
             <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
         </SfDataManager>
     </SfAutoComplete>
-    <input type="text" @bind="SearchBox" />
     <SfButton @onclick="OnAddClicked">Add</SfButton>
     <SfGrid DataSource="@Forecasts" AllowSorting="true">
         <GridColumns>
