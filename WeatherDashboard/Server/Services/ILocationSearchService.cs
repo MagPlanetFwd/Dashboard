@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
-using WeatherDashboard.Server.Services.Models;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WeatherDashboard.Shared;
 
 namespace WeatherDashboard.Server.Services
 {
     public interface ILocationSearchService
     {
-        Task<SearchResult> GetSearchResult(string search);
+        Task<IEnumerable<LocationResult>> GetSearchResult(string search);
     }
 }

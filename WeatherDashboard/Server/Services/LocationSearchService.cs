@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using WeatherDashboard.Server.Services.Models;
+using WeatherDashboard.Shared;
 
 namespace WeatherDashboard.Server.Services
 {
@@ -21,7 +22,7 @@ namespace WeatherDashboard.Server.Services
             _logger = logger;
         }
 
-        public async Task<SearchResult> GetSearchResult(string search)
+        public async Task<IEnumerable<LocationResult>> GetSearchResult(string search)
         {
             try
             {
@@ -37,13 +38,19 @@ namespace WeatherDashboard.Server.Services
 
                 using var response = await _client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
-                return await response.Content.ReadFromJsonAsync<SearchResult>();
+                var raw = await response.Content.ReadAsStringAsync();
+                return await response.Content.ReadFromJsonAsync<IEnumerable<LocationResult>>();
             }
             catch (Exception e)
             {
                 _logger.LogError(e, "Error getting search result.");
-                return new SearchResult();
+                return Array.Empty<LocationResult>();
             }
+        }
+
+        private int IEnumerable<T>()
+        {
+            throw new NotImplementedException();
         }
     }
 }

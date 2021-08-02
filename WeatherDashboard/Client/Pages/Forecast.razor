@@ -1,5 +1,6 @@
 ﻿@page "/forecast"
 @using ViewModels
+@using WeatherDashboard.Shared
 @inherits ForecastBase
 
 <h1>Three-day Weather Forecasts (&deg;C)</h1>
@@ -10,6 +11,14 @@
 }
 else
 {
+    <SfAutoComplete TValue="LocationResult" 
+                    TItem="string">
+        <SfDataManager Url="https://localhost:5001/LocationSearch?search=atlanta"
+                       Adaptor="Adaptors.UrlAdaptor"
+                       CrossDomain="true">
+            <AutoCompleteFieldSettings Value="name"></AutoCompleteFieldSettings>
+        </SfDataManager>
+    </SfAutoComplete>
     <input type="text" @bind="SearchBox" />
     <SfButton @onclick="OnSearchClicked">Add</SfButton>
     <SfGrid DataSource="@Forecasts" AllowSorting="true">
