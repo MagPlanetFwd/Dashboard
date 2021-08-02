@@ -54,7 +54,7 @@ namespace WeatherDashboard.Client.Pages
             SearchBox += args.Key;
         }
 
-        protected void OnAutoCompleteKeyUp(KeyboardEventArgs args)
+        protected void OnAutoCompleteKeyDown(KeyboardEventArgs args)
         {
             if(args.Code == "Backspace" && SearchBox.Length > 0)
             {

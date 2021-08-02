@@ -16,7 +16,7 @@ else
                     Placeholder="e.g. Atlanta"
                     Query="@GetQuery()"
                     @onkeypress="@(e => OnAutoCompleteKeyPressed(e))"
-                    @onkeydown="@(e => OnAutoCompleteKeyUp(e))">
+                    @onkeydown="@(e => OnAutoCompleteKeyDown(e))">
         <SfDataManager Url="@GetSearchUrl()"
                        Adaptor="Adaptors.UrlAdaptor"
                        CrossDomain="true">
