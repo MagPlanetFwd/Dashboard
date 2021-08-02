@@ -2,11 +2,11 @@
 {
     public enum ForecastColor
     {
-        undefined,
-        cold,
-        cool,
-        average,
-        warm,
-        hot
+        Undefined,
+        Cold,
+        Cool,
+        Average,
+        Warm,
+        Hot
     }
 }

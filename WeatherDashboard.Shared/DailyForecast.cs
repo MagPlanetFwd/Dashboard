@@ -22,23 +22,23 @@
         {
             if(High < 5)
             {
-                return ForecastColor.cold;
+                return ForecastColor.Cold;
             }
             else if(High < 15)
             {
-                return ForecastColor.cool;
+                return ForecastColor.Cool;
             }
             else if (High < 25)
             {
-                return ForecastColor.average;
+                return ForecastColor.Average;
             }
             else if (High < 35)
             {
-                return ForecastColor.warm;
+                return ForecastColor.Warm;
             }
             else
             {
-                return ForecastColor.hot;
+                return ForecastColor.Hot;
             }
         }
     }
