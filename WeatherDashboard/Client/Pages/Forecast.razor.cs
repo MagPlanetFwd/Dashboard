@@ -23,7 +23,7 @@ namespace WeatherDashboard.Client.Pages
                 "cities=san francisco");
         }
 
-        protected async void OnSearchClicked()
+        protected async void OnAddClicked()
         {
             if (string.IsNullOrEmpty(SearchBox))
             {

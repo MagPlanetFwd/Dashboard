@@ -20,7 +20,7 @@ else
         </SfDataManager>
     </SfAutoComplete>
     <input type="text" @bind="SearchBox" />
-    <SfButton @onclick="OnSearchClicked">Add</SfButton>
+    <SfButton @onclick="OnAddClicked">Add</SfButton>
     <SfGrid DataSource="@Forecasts" AllowSorting="true">
         <GridColumns>
             <GridColumn Field="@nameof(WeatherGridRow.City)">
