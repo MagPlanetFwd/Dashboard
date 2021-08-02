@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using Syncfusion.Blazor.Data;
 using System.Threading.Tasks;
-using WeatherDashboard.Client.ViewModels;
 using WeatherDashboard.Server.Services;
 
 namespace WeatherDashboard.Server.Controllers
@@ -18,13 +17,13 @@ namespace WeatherDashboard.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<UrlAdapterDataManagerResult> Post(string search)
+        public async Task<DataResult> Post(string search)
         {
             var result = await _service.GetSearchResult(search);
-            return new UrlAdapterDataManagerResult()
+            return new DataResult()
             {
                 Result = result,
-                Count = result.ToArray().Length
+                Count = result.Length
             };
         }
     }

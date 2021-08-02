@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Syncfusion.Blazor.Data;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -9,11 +11,14 @@ namespace WeatherDashboard.Client.Pages
 {
     public class ForecastBase : ComponentBase
     {
-        protected ObservableCollection<WeatherGridRow> Forecasts { get; private set; }
-        protected string SearchBox { get; set; }
+        public Query Query => new Query().Select(new List<string> { "Name" }).RequiresCount();
 
         [Inject]
         public HttpClient Client { get; set; }
+
+        protected ObservableCollection<WeatherGridRow> Forecasts { get; private set; }
+
+        protected string SearchBox { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

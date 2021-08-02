@@ -22,7 +22,7 @@ namespace WeatherDashboard.Server.Services
             _logger = logger;
         }
 
-        public async Task<IEnumerable<LocationResult>> GetSearchResult(string search)
+        public async Task<LocationResult[]> GetSearchResult(string search)
         {
             try
             {
@@ -38,8 +38,7 @@ namespace WeatherDashboard.Server.Services
 
                 using var response = await _client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
-                var raw = await response.Content.ReadAsStringAsync();
-                return await response.Content.ReadFromJsonAsync<IEnumerable<LocationResult>>();
+                return await response.Content.ReadFromJsonAsync<LocationResult[]>();
             }
             catch (Exception e)
             {

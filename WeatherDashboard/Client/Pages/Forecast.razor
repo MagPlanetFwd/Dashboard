@@ -11,12 +11,14 @@
 }
 else
 {
-    <SfAutoComplete TValue="LocationResult" 
-                    TItem="string">
+    <SfAutoComplete TValue="string" 
+                    TItem="LocationResult"
+                    Autofill="true"
+                    Query="@Query">
         <SfDataManager Url="https://localhost:5001/LocationSearch?search=atlanta"
                        Adaptor="Adaptors.UrlAdaptor"
                        CrossDomain="true">
-            <AutoCompleteFieldSettings Value="name"></AutoCompleteFieldSettings>
+            <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
         </SfDataManager>
     </SfAutoComplete>
     <input type="text" @bind="SearchBox" />
