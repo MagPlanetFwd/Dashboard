@@ -14,7 +14,7 @@ else
     <SfAutoComplete TValue="string" 
                     TItem="LocationResult"
                     Autofill="true"
-                    Query="@Query">
+                    Query="@GetQuery()">
         <SfDataManager Url="https://localhost:5001/LocationSearch?search=atlanta"
                        Adaptor="Adaptors.UrlAdaptor"
                        CrossDomain="true">
