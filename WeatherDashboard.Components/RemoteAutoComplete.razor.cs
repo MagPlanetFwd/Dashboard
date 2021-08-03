@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Syncfusion.Blazor.Data;
-using WeatherDashboard.Client.Data;
+using WeatherDashboard.Shared;
 
-namespace WeatherDashboard.Client.Pages
+namespace WeatherDashboard.Components
 {
     public class RemoteAutoCompleteBase : ComponentBase
     {
