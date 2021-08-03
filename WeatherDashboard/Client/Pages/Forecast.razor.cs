@@ -41,6 +41,7 @@ namespace WeatherDashboard.Client.Pages
 
             var city = SearchBox.Split(',')[0];
             var forecast = await Client.GetFromJsonAsync<WeatherGridRow>($"WeatherForecast/Get?city={city}");
+            SearchBox = string.Empty;
             Forecasts.Add(forecast);
         }
 
