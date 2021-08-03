@@ -1,7 +1,8 @@
-﻿@page "/forecast"
+﻿@page "/datagrid"
+
 @using ViewModels
-@using WeatherDashboard.Shared
-@inherits ForecastBase
+
+@inherits DataGridBase
 
 <h1>Three-day Weather Forecasts (&deg;C)</h1>
 
@@ -11,20 +12,6 @@
 }
 else
 {
-    <SfAutoComplete TValue="string"
-                    TItem="LocationResult"
-                    Placeholder="e.g. Atlanta"
-                    Query="@GetQuery()"
-                    @onkeypress="@(e => OnAutoCompleteKeyPressed(e))"
-                    @onkeydown="@(e => OnAutoCompleteKeyDown(e))"
-                    Width="250px">
-        <SfDataManager Url="@GetSearchUrl()"
-                       Adaptor="Adaptors.UrlAdaptor"
-                       CrossDomain="true">
-            <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
-        </SfDataManager>
-    </SfAutoComplete>
-    <SfButton @onclick="OnAddClicked">Add</SfButton>
     <SfGrid DataSource="@Forecasts" AllowSorting="true">
         <GridColumns>
             <GridColumn Field="@nameof(WeatherGridRow.City)">
