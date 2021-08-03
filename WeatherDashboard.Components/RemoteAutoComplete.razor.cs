@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Syncfusion.Blazor.Data;
-using WeatherDashboard.Shared;
+using WeatherDashboard.Shared.Data;
 
 namespace WeatherDashboard.Components
 {

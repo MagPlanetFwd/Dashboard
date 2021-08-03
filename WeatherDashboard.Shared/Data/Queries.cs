@@ -1,7 +1,7 @@
 ﻿using Syncfusion.Blazor.Data;
 using System.Collections.Generic;
 
-namespace WeatherDashboard.Shared
+namespace WeatherDashboard.Shared.Data
 {
     public class Queries
     {
