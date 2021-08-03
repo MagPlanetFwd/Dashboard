@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using WeatherDashboard.Shared;
+using WeatherDashboard.Shared.Models;
 
 namespace WeatherDashboard.Components
 {

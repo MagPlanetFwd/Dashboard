@@ -1,4 +1,4 @@
-﻿namespace WeatherDashboard.Shared
+﻿namespace WeatherDashboard.Shared.Models
 {
     public class LocationResult
     {
