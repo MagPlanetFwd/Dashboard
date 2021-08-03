@@ -5,9 +5,9 @@ using WeatherDashboard.Client.Data;
 
 namespace WeatherDashboard.Client.Pages
 {
-    public class AutoCompleteBase : ComponentBase
+    public class RemoteAutoCompleteBase : ComponentBase
     {
-        protected string SearchBox { get; set; }
+        protected string RemoteSearch { get; set; }
 
         protected static Query GetQuery()
         {
@@ -16,19 +16,19 @@ namespace WeatherDashboard.Client.Pages
 
         protected string GetSearchUrl()
         {
-            return $"https://localhost:5001/LocationSearch?search={SearchBox}";
+            return $"https://localhost:5001/LocationSearch?search={RemoteSearch}";
         }
 
         protected void OnAutoCompleteKeyPressed(KeyboardEventArgs args)
         {
-            SearchBox += args.Key;
+            RemoteSearch += args.Key;
         }
 
         protected void OnAutoCompleteKeyDown(KeyboardEventArgs args)
         {
-            if (args.Code == "Backspace" && SearchBox.Length > 0)
+            if (args.Code == "Backspace" && RemoteSearch.Length > 0)
             {
-                SearchBox = SearchBox.Remove(SearchBox.Length - 1);
+                RemoteSearch = RemoteSearch.Remove(RemoteSearch.Length - 1);
             }
         }
     }

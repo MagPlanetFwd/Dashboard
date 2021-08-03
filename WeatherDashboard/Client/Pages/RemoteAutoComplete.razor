@@ -1,0 +1,17 @@
+﻿@using WeatherDashboard.Shared
+
+@inherits RemoteAutoCompleteBase 
+
+<SfAutoComplete TValue="string"
+                TItem="LocationResult"
+                Placeholder="City, e.g. Atlanta"
+                Query="@GetQuery()"
+                @onkeypress="@(e => OnAutoCompleteKeyPressed(e))"
+                @onkeydown="@(e => OnAutoCompleteKeyDown(e))"
+                Width="250px">
+    <SfDataManager Url="@GetSearchUrl()"
+                   Adaptor="Adaptors.UrlAdaptor"
+                   CrossDomain="true">
+        <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
+    </SfDataManager>
+</SfAutoComplete>
