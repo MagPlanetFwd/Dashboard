@@ -1,11 +1,13 @@
-﻿namespace WeatherDashboard.Shared.Models.States
+﻿using System.Collections.Generic;
+
+namespace WeatherDashboard.Shared.Models.States
 {
     public class Alabama : State
     {
         public Alabama()
         {
             Name = "Alabama";
-            Cities = new City[]
+            Cities = new List<City>()
             {
                 new City()
                 {
@@ -26,26 +28,6 @@
                 new City()
                 {
                     Name = "Tuscaloosa"
-                },
-                new City()
-                {
-                    Name = "Hoover"
-                },
-                new City()
-                {
-                    Name = "Dothan"
-                },
-                new City()
-                {
-                    Name = "Auburn"
-                },
-                new City()
-                {
-                    Name = "Decatur"
-                },
-                new City()
-                {
-                    Name = "Madison"
                 }
             };
         }

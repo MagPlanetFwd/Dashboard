@@ -2,32 +2,32 @@
 
 namespace WeatherDashboard.Shared.Models.States
 {
-    public class Alaska : State
+    public class Mississippi : State
     {
-        public Alaska()
+        public Mississippi()
         {
-            Name = "Alaska";
+            Name = "Mississippi";
             Cities = new List<City>()
             {
                 new City()
                 {
-                    Name = "Anchorage"
+                    Name = "Jackson"
                 },
                 new City()
                 {
-                    Name = "Fairbanks"
+                    Name = "Guflport"
                 },
                 new City()
                 {
-                    Name = "Juneau"
+                    Name = "Southaven"
                 },
                 new City()
                 {
-                    Name = "Sitka"
+                    Name = "Hattiesburg"
                 },
                 new City()
                 {
-                    Name = "Ketchikan"
+                    Name = "Biloxi"
                 }
             };
         }

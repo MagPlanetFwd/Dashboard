@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace WeatherDashboard.Shared.Models.States
 {
@@ -11,7 +7,7 @@ namespace WeatherDashboard.Shared.Models.States
         public Connecticut()
         {
             Name = "Connecticut";
-            Cities = new City[]
+            Cities = new List<City>()
             {
                 new City()
                 {
@@ -32,26 +28,6 @@ namespace WeatherDashboard.Shared.Models.States
                 new City()
                 {
                     Name = "Waterbury"
-                },
-                new City()
-                {
-                    Name = "Norwalk"
-                },
-                new City()
-                {
-                    Name = "Danbury"
-                },
-                new City()
-                {
-                    Name = "New Britain"
-                },
-                new City()
-                {
-                    Name = "Bristol"
-                },
-                new City()
-                {
-                    Name = "Meriden"
                 }
             };
         }
