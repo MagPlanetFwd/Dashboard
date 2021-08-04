@@ -1,3 +1,21 @@
 ﻿@page "/autocomplete"
 
-<RemoteAutoComplete></RemoteAutoComplete>
+@inherits AutoCompleteBase
+
+<table>
+    <tr>
+        <td>
+            <RemoteAutoComplete></RemoteAutoComplete>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <LocalAutoComplete NamedSources="@GetStates()"></LocalAutoComplete>
+                </tr>
+                <tr>
+                    <LocalAutoComplete NamedSources="@GetCities()"></LocalAutoComplete>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

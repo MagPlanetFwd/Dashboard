@@ -1,0 +1,9 @@
+﻿@using WeatherDashboard.Shared.Models
+
+@inherits LocalAutoCompleteBase
+
+<SfAutoComplete TItem="string"
+                TValue="INamed"
+                DataSource="@GetSource()">
+    <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
+</SfAutoComplete>
