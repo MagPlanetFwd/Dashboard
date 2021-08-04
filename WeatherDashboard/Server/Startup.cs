@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Linq;
 using WeatherDashboard.Server.Services;
 
 namespace WeatherDashboard.Server
@@ -30,6 +27,10 @@ namespace WeatherDashboard.Server
                 client.BaseAddress = weatherapi;
             });
             services.AddHttpClient<ILocationSearchService, LocationSearchService>(client =>
+            {
+                client.BaseAddress = weatherapi;
+            });
+            services.AddHttpClient<IHistoricalWeatherService, HistoricalWeatherService>(client =>
             {
                 client.BaseAddress = weatherapi;
             });

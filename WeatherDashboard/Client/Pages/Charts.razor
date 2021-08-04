@@ -1,3 +1,19 @@
 ﻿@page "/charts"
 
-<SfChart></SfChart>
+@using ValueType = Syncfusion.Blazor.Charts.ValueType;
+
+@inherits ChartsBase
+
+<SfChart Title="Historical Weather - Seattle">
+    <ChartPrimaryXAxis IntervalType="IntervalType.Days" 
+                       LabelFormat="MM/dd" 
+                       ValueType="ValueType.DateTime">
+    </ChartPrimaryXAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@HistoricalWeather" 
+                     XName="Date" 
+                     YName="Temperature" 
+                     Type="ChartSeriesType.Line">
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>

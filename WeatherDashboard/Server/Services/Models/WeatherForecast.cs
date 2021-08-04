@@ -1,4 +1,6 @@
-﻿using WeatherDashboard.Client.ViewModels;
+﻿using System;
+using System.Collections.Generic;
+using WeatherDashboard.Client.ViewModels;
 using WeatherDashboard.Shared.Models;
 
 namespace WeatherDashboard.Server.Services.Models
@@ -37,6 +39,26 @@ namespace WeatherDashboard.Server.Services.Models
                     Icon = Forecast.Forecastday[2].Day.Condition.Icon
                 },
             };
+        }
+
+        public IEnumerable<HistoricalWeather> ToHistoricalWeathers()
+        {
+            if(Forecast == null)
+            {
+                return Array.Empty<HistoricalWeather>();
+            }
+
+            var weathers = new HistoricalWeather[7];
+            for(var i = 0; i < 7; i++)
+            {
+                weathers[i] = new HistoricalWeather()
+                {
+                    Date = DateTime.Today.AddDays(-7 + i),
+                    Temperature = Forecast.Forecastday[i].Day.Maxtemp_c
+                };
+            }
+
+            return weathers;
         }
     }
 }
