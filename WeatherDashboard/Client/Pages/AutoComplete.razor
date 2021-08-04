@@ -8,14 +8,9 @@
             <RemoteAutoComplete></RemoteAutoComplete>
         </td>
         <td>
-            <table>
-                <tr>
-                    <LocalAutoComplete NamedSources="@GetStates()"></LocalAutoComplete>
-                </tr>
-                <tr>
-                    <LocalAutoComplete NamedSources="@GetCities()"></LocalAutoComplete>
-                </tr>
-            </table>
+        <LocalAutoComplete NamedSources="@GetStates()"
+                           Placeholder="State, e.g. Georgia">
+        </LocalAutoComplete>
         </td>
     </tr>
 </table>

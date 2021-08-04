@@ -10,6 +10,9 @@ namespace WeatherDashboard.Components
         [Parameter]
         public IEnumerable<INamed> NamedSources { get; set; }
 
+        [Parameter]
+        public string Placeholder { get; set; }
+
         protected IEnumerable<string> GetSource()
         {
             return NamedSources.Select(n => n.Name);
