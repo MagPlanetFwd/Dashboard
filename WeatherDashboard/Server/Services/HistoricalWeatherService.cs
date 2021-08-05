@@ -26,8 +26,8 @@ namespace WeatherDashboard.Server.Services
             try
             {
                 var dtFormat = ("yyyy-MM-dd");
-                var dt = DateTime.Today.AddDays(-7).ToString(dtFormat);
-                var endDt = DateTime.Today.AddDays(-1).ToString(dtFormat);
+                var dt = DateTime.Today.AddDays(-6).ToString(dtFormat);
+                var endDt = DateTime.Today.ToString(dtFormat);
                 var request = new HttpRequestMessage
                 {
                     RequestUri = new Uri(_client.BaseAddress, $"history.json?q={city}&dt={dt}&end_dt={endDt}"),

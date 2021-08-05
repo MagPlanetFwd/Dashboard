@@ -48,12 +48,13 @@ namespace WeatherDashboard.Server.Services.Models
                 return Array.Empty<HistoricalWeather>();
             }
 
-            var weathers = new HistoricalWeather[7];
-            for(var i = 0; i < 7; i++)
+            var n = Forecast.Forecastday.Length;
+            var weathers = new HistoricalWeather[n];
+            for(var i = 0; i < n; i++)
             {
                 weathers[i] = new HistoricalWeather()
                 {
-                    Date = DateTime.Today.AddDays(-7 + i),
+                    Date = DateTime.Today.AddDays(i - n),
                     Temperature = Forecast.Forecastday[i].Day.Maxtemp_c
                 };
             }

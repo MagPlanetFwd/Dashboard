@@ -16,7 +16,7 @@ namespace WeatherDashboard.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            var weather = await Client.GetFromJsonAsync<IEnumerable<HistoricalWeather>>("HistoricalWeather?city=seattle");
+            var weather = await Client.GetFromJsonAsync<IEnumerable<HistoricalWeather>>("HistoricalWeather/Get?city=seattle");
             HistoricalWeather = weather;
         }
     }

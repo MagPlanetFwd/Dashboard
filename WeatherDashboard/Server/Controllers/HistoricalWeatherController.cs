@@ -6,7 +6,7 @@ using WeatherDashboard.Server.Services;
 
 namespace WeatherDashboard.Server.Controllers
 {
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class HistoricalWeatherController : ControllerBase
     {
@@ -18,10 +18,12 @@ namespace WeatherDashboard.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<HistoricalWeather>> Get(string city)
+        public async Task<IEnumerable<HistoricalWeather>> Get([FromQuery(Name = "city")] string city)
         {
             var forecast = await _service.GetHistoricalWeather(city);
             return forecast.ToHistoricalWeathers();
         }
+
+
     }
 }
