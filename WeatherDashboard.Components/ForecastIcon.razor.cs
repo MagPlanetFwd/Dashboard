@@ -6,6 +6,6 @@ namespace WeatherDashboard.Components
     public class ForecastIconBase : ComponentBase
     {
         [Parameter]
-        public DailyForecast DailyForecast { get; set; }
+        public DailyWeather DailyForecast { get; set; }
     }
 }

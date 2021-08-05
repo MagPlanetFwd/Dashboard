@@ -1,19 +1,25 @@
 ﻿@page "/charts"
 
 @using ValueType = Syncfusion.Blazor.Charts.ValueType;
+@using WeatherDashboard.Shared.Models
 
 @inherits ChartsBase
 
-<SfChart Title="Historical Weather - Seattle">
-    <ChartPrimaryXAxis IntervalType="IntervalType.Days" 
-                       LabelFormat="MM/dd" 
+<SfChart Title="Daily Highs (&deg;C) - Past 7 Days">
+    <ChartPrimaryXAxis IntervalType="IntervalType.Days"
+                       LabelFormat="MM/dd"
                        ValueType="ValueType.DateTime">
     </ChartPrimaryXAxis>
     <ChartSeriesCollection>
-        <ChartSeries DataSource="@HistoricalWeather" 
-                     XName="Date" 
-                     YName="Temperature" 
-                     Type="ChartSeriesType.Line">
-        </ChartSeries>
+        @foreach (var source in Sources)
+        {
+            <ChartSeries DataSource="source.DailyWeathers"
+                         Name="@source.City"
+                         XName="@nameof(DailyWeather.Date)"
+                         YName="@nameof(DailyWeather.High)"
+                         Type="ChartSeriesType.Line">
+            </ChartSeries>
+        }
+        <ChartLegendSettings Visible="true"></ChartLegendSettings>
     </ChartSeriesCollection>
 </SfChart>

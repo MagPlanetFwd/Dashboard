@@ -12,12 +12,18 @@ namespace WeatherDashboard.Client.Pages
         [Inject]
         public HttpClient Client { get; set; }
 
-        protected IEnumerable<HistoricalWeather> HistoricalWeather { get; private set; }
+        protected List<HistoricalWeather> Sources { get; private set; }
 
         protected override async Task OnInitializedAsync()
         {
-            var weather = await Client.GetFromJsonAsync<IEnumerable<HistoricalWeather>>("HistoricalWeather/Get?city=seattle");
-            HistoricalWeather = weather;
+            Sources = new List<HistoricalWeather>();
+
+            var weathers = await Client.GetFromJsonAsync<List<HistoricalWeather>>("HistoricalWeather/GetMultiple?" +
+                "cities=Seattle&" +
+                "cities=San Francisco&" +
+                "cities=Portland");
+
+            Sources.AddRange(weathers);
         }
     }
 }

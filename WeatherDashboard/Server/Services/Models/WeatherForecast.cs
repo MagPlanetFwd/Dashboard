@@ -20,19 +20,19 @@ namespace WeatherDashboard.Server.Services.Models
             return new WeatherGridRow()
             {
                 City = Location.Name,
-                Today = new DailyForecast()
+                Today = new DailyWeather()
                 {
                     Low = Forecast.Forecastday[0].Day.Mintemp_c,
                     High = Forecast.Forecastday[0].Day.Maxtemp_c,
                     Icon = Forecast.Forecastday[0].Day.Condition.Icon
                 },
-                Tomorrow = new DailyForecast()
+                Tomorrow = new DailyWeather()
                 {
                     Low = Forecast.Forecastday[1].Day.Mintemp_c,
                     High = Forecast.Forecastday[1].Day.Maxtemp_c,
                     Icon = Forecast.Forecastday[1].Day.Condition.Icon
                 },
-                ThirdDay = new DailyForecast()
+                ThirdDay = new DailyWeather()
                 {
                     Low = Forecast.Forecastday[2].Day.Mintemp_c,
                     High = Forecast.Forecastday[2].Day.Maxtemp_c,
@@ -41,25 +41,30 @@ namespace WeatherDashboard.Server.Services.Models
             };
         }
 
-        public IEnumerable<HistoricalWeather> ToHistoricalWeathers()
+        public HistoricalWeather ToHistoricalWeather()
         {
             if(Forecast == null)
             {
-                return Array.Empty<HistoricalWeather>();
+                return new HistoricalWeather();
             }
 
             var n = Forecast.Forecastday.Length;
-            var weathers = new HistoricalWeather[n];
+            var weathers = new DailyWeather[n];
+
             for(var i = 0; i < n; i++)
             {
-                weathers[i] = new HistoricalWeather()
+                weathers[i] = new DailyWeather()
                 {
                     Date = DateTime.Today.AddDays(i - n),
-                    Temperature = Forecast.Forecastday[i].Day.Maxtemp_c
+                    High = Forecast.Forecastday[i].Day.Maxtemp_c,
+                    Low = Forecast.Forecastday[i].Day.Maxtemp_c
                 };
             }
 
-            return weathers;
+            return new HistoricalWeather()
+            {
+                DailyWeathers = weathers
+            };
         }
     }
 }

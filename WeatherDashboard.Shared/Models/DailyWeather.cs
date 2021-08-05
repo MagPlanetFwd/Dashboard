@@ -1,7 +1,10 @@
-﻿namespace WeatherDashboard.Shared.Models
+﻿using System;
+
+namespace WeatherDashboard.Shared.Models
 {
-    public class DailyForecast
+    public class DailyWeather
     {
+        public DateTime Date { get; set; }
         public float Low { get; set; }
         public float High { get; set; }
         public string Icon { get; set; }
