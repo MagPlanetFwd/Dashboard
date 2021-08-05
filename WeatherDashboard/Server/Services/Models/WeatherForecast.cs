@@ -57,7 +57,7 @@ namespace WeatherDashboard.Server.Services.Models
                 {
                     Date = DateTime.Today.AddDays(i - n),
                     High = Forecast.Forecastday[i].Day.Maxtemp_c,
-                    Low = Forecast.Forecastday[i].Day.Maxtemp_c
+                    Low = Forecast.Forecastday[i].Day.Mintemp_c
                 };
             }
 
