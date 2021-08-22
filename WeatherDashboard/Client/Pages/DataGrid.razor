@@ -12,7 +12,10 @@
 }
 else
 {
-    <SfGrid DataSource="@Forecasts" AllowSorting="true">
+    <SfGrid DataSource="@Forecasts" 
+            AllowSorting="true"
+            Toolbar="@(new List<string>() { "Add", "Delete" })">
+        <GridEditSettings AllowAdding="true" AllowDeleting="true" Mode="EditMode.Dialog"></GridEditSettings>
         <GridColumns>
             <GridColumn Field="@nameof(WeatherGridRow.City)">
             </GridColumn>
