@@ -1,10 +1,10 @@
 ﻿@page "/datagrid"
 
 @using ViewModels
+@using WeatherDashboard.Shared.Models
 
 @inherits DataGridBase
 
-<h1>Three-day Weather Forecasts (&deg;C)</h1>
 
 @if (Forecasts == null)
 {
@@ -12,41 +12,63 @@
 }
 else
 {
-    <SfGrid DataSource="@Forecasts" 
-            AllowSorting="true"
-            Toolbar="@(new List<string>() { "Add", "Delete" })">
-        <GridEditSettings AllowAdding="true" AllowDeleting="true" Mode="EditMode.Dialog"></GridEditSettings>
-        <GridColumns>
-            <GridColumn Field="@nameof(WeatherGridRow.City)">
-            </GridColumn>
-            <GridColumn Field="@nameof(WeatherGridRow.Today)"
-                        AllowSorting="false">
-                <Template>
-                    @{
-                        var forecast = context as WeatherGridRow;
-                        <ForecastIcon DailyForecast="forecast.Today"></ForecastIcon>
-                    }
-                </Template>
-            </GridColumn>
-            <GridColumn Field="@nameof(WeatherGridRow.Tomorrow)"
-                        AllowSorting="false">
-                <Template>
-                    @{
-                        var forecast = context as WeatherGridRow;
-                        <ForecastIcon DailyForecast="forecast.Tomorrow"></ForecastIcon>
-                    }
-                </Template>
-            </GridColumn>
-            <GridColumn Field="@nameof(WeatherGridRow.ThirdDay)"
-                        HeaderText="@DateTime.Today.AddDays(2).ToString("MM/dd")"
-                        AllowSorting="false">
-                <Template>
-                    @{
-                        var forecast = context as WeatherGridRow;
-                        <ForecastIcon DailyForecast="forecast.ThirdDay"></ForecastIcon>
-                    }
-                </Template>
-            </GridColumn>
-        </GridColumns>
-    </SfGrid>
+    <h1>Three-day Weather Forecasts (&deg;C)</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <SfAutoComplete TValue="string"
+                                TItem="LocationResult"
+                                Query="@GetQuery()"
+                                @onkeypress="@(e => OnAutoCompleteKeyPressed(e))"
+                                @onkeydown="@(e => OnAutoCompleteKeyDown(e))"
+                                Placeholder="Location, e.g. Seattle"
+                                @bind-Value="City">
+                    <SfDataManager Url="@GetSearchUrl()"
+                                   Adaptor="Adaptors.UrlAdaptor"
+                                   CrossDomain="true">
+                        <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
+                    </SfDataManager>
+                </SfAutoComplete>
+            </div>
+            <div class="col-sm">
+                <SfButton OnClick="OnAddClicked">Add</SfButton>
+            </div>
+        </div>
+        <SfGrid DataSource="@Forecasts">
+            <GridColumns>
+                <GridColumn Field="@nameof(WeatherGridRow.City)"
+                            AllowSorting="true"
+                            IsPrimaryKey="true">
+                </GridColumn>
+                <GridColumn Field="@nameof(WeatherGridRow.Today)"
+                            AllowSorting="false">
+                    <Template>
+                        @{
+                            var forecast = context as WeatherGridRow;
+                            <ForecastIcon DailyForecast="forecast.Today"></ForecastIcon>
+                        }
+                    </Template>
+                </GridColumn>
+                <GridColumn Field="@nameof(WeatherGridRow.Tomorrow)"
+                            AllowSorting="false">
+                    <Template>
+                        @{
+                            var forecast = context as WeatherGridRow;
+                            <ForecastIcon DailyForecast="forecast.Tomorrow"></ForecastIcon>
+                        }
+                    </Template>
+                </GridColumn>
+                <GridColumn Field="@nameof(WeatherGridRow.ThirdDay)"
+                            HeaderText="@DateTime.Today.AddDays(2).ToString("MM/dd")"
+                            AllowSorting="false">
+                    <Template>
+                        @{
+                            var forecast = context as WeatherGridRow;
+                            <ForecastIcon DailyForecast="forecast.ThirdDay"></ForecastIcon>
+                        }
+                    </Template>
+                </GridColumn>
+            </GridColumns>
+        </SfGrid>
+    </div>
 }
